@@ -1,27 +1,46 @@
-import pygame as pg
+import pygame
+from pygame.math import Vector2
 from fruit import FRUIT
 from snake import SNAKE
+from constants import DIRECTIONS
 import sys
 
-pg.init()
+pygame.init()
+
 
 # Game Global Variables
 cell_size = 40
 cell_number = 20
-screen = pg.display.set_mode((cell_size * cell_number, cell_size * cell_number)) # creating a display surface
-screen.fill((175, 215, 70))
-clock = pg.time.Clock()
+screen = pygame.display.set_mode((cell_size * cell_number, cell_size * cell_number)) # creating a display surface
+clock = pygame.time.Clock()
 f = FRUIT(cell_size, cell_number)
-s = SNAKE(cell_size)
+s = SNAKE(cell_size, cell_number)
+
+# Game User-defined events
+SCREEN_UPDATE = pygame.USEREVENT
+pygame.time.set_timer(SCREEN_UPDATE, 150)
 
 while True:
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            pg.quit()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
             sys.exit()
+        if event.type == SCREEN_UPDATE:
+            s.move_snake()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                s.set_snake_direction(DIRECTIONS['UP'])
+            if event.key == pygame.K_DOWN:
+                s.set_snake_direction(DIRECTIONS['DOWN'])
+            if event.key == pygame.K_LEFT:
+                s.set_snake_direction(DIRECTIONS['LEFT'])
+            if event.key == pygame.K_RIGHT:
+                s.set_snake_direction(DIRECTIONS['RIGHT'])
+        
     
+    screen.fill((175, 215, 70))
     f.draw_fruit(screen)
     s.draw_snake(screen)
     
-    pg.display.update()
+    pygame.display.update()
     clock.tick(60) # Running at 60 fps as a maximum rate
