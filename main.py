@@ -43,6 +43,7 @@ class GAME:
     def check_gameover(self):
         if self.snake.get_head_pos() in self.snake.body_cells[1:]:
             pygame.quit()
+            sys.exit()
 
 game = GAME()
 
