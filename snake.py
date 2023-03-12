@@ -10,9 +10,14 @@ class SNAKE:
         self.snake_color = pygame.Color('blue')
         self.direction = DIRECTIONS['RIGHT']
         self.body_cells = [Vector2(5,10), Vector2(6, 10), Vector2(7, 10)]
+        self.is_add_new_block = False
         
     def draw_snake(self, display):
-        for body_cell in self.body_cells:
+        head_rect = pygame.Rect(int(self.get_head_pos().x * self.cell_size), int(self.get_head_pos().y * self.cell_size), self.cell_size, self.cell_size)
+        pygame.draw.rect(display, pygame.Color('black'), head_rect)
+        
+        for i in range(1, len(self.body_cells)):
+            body_cell = self.body_cells[i]
             body_cell_rect = pygame.Rect(int(body_cell.x * self.cell_size), int(body_cell.y * self.cell_size), self.cell_size, self.cell_size)
             pygame.draw.rect(display, self.snake_color, body_cell_rect)
             
@@ -39,4 +44,14 @@ class SNAKE:
         if head_cell[0].y < 0:
             head_cell[0].y = self.cell_number-1
         
-        self.body_cells = head_cell + self.body_cells[:-1]
+        if self.is_add_new_block:
+            self.body_cells = head_cell + self.body_cells[:]
+            self.is_add_new_block = False
+        else:
+            self.body_cells = head_cell + self.body_cells[:-1]
+        
+    def get_head_pos(self):
+        return self.body_cells[0]
+    
+    def set_new_block_flag(self):
+        self.is_add_new_block = True

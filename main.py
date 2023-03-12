@@ -25,11 +25,19 @@ class GAME:
         self.snake = SNAKE(cell_size, cell_number)
         
     def update(self):
+        self.check_collision()
         self.snake.move_snake()
    
     def draw_elements(self):
         self.fruit.draw_fruit(screen)
-        self.snake.draw_snake(screen)    
+        self.snake.draw_snake(screen)
+        
+    def check_collision(self):
+        if self.snake.get_head_pos() == self.fruit.pos:
+            # eat the fruit i.e plant a new fruit at another place
+            self.fruit.set_new_fruit_pos()
+            # make the snake larger
+            self.snake.set_new_block_flag()
 
 game = GAME()
 
