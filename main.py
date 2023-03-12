@@ -30,6 +30,7 @@ class GAME:
         self.check_gameover()
    
     def draw_elements(self):
+        self.draw_grass()
         self.fruit.draw_fruit(screen)
         self.snake.draw_snake(screen)
         
@@ -44,6 +45,20 @@ class GAME:
         if self.snake.get_head_pos() in self.snake.body_cells[1:]:
             pygame.quit()
             sys.exit()
+            
+    def draw_grass(self):
+        grass_color = (167, 209, 61)
+        for row in range(cell_number):
+            if row % 2 != 0:
+                for col in range(cell_number):
+                    if col % 2 != 0:
+                        grass_rect = pygame.Rect(int(col * cell_size), int(row * cell_size), cell_size, cell_size)
+                        pygame.draw.rect(screen, grass_color, grass_rect)
+            else:
+                for col in range(cell_number):
+                    if col % 2 == 0:
+                        grass_rect = pygame.Rect(int(col * cell_size), int(row * cell_size), cell_size, cell_size)
+                        pygame.draw.rect(screen, grass_color, grass_rect)
 
 game = GAME()
 
