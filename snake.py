@@ -9,7 +9,7 @@ class SNAKE:
         self.cell_number = cell_number
         self.snake_color = pygame.Color('blue')
         self.direction = DIRECTIONS['RIGHT']
-        self.body_cells = [Vector2(5,10), Vector2(6, 10), Vector2(7, 10)]
+        self.body_cells = [Vector2(5,10), Vector2(4, 10), Vector2(3, 10)]
         self.is_add_new_block = False
         
     def draw_snake(self, display):

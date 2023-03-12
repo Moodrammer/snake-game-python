@@ -27,6 +27,7 @@ class GAME:
     def update(self):
         self.check_collision()
         self.snake.move_snake()
+        self.check_gameover()
    
     def draw_elements(self):
         self.fruit.draw_fruit(screen)
@@ -38,6 +39,10 @@ class GAME:
             self.fruit.set_new_fruit_pos()
             # make the snake larger
             self.snake.set_new_block_flag()
+            
+    def check_gameover(self):
+        if self.snake.get_head_pos() in self.snake.body_cells[1:]:
+            pygame.quit()
 
 game = GAME()
 
