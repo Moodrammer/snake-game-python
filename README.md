@@ -4,6 +4,7 @@
 - [ ] Add a gameover screen displaying the final score.
 - [ ] Add a two-player mode with two snakes.
 - [ ] Some code refactoring.
+- [ ] Train an RL agent to play the game.
 
 ## 🎨 Game Sprites
 All sprites are drawn by me 😊 using the following website pixel art tool [Pixilart](https://www.pixilart.com/)
