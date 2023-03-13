@@ -20,9 +20,11 @@ pygame.time.set_timer(SCREEN_UPDATE, 150)
 
 # Main game class
 class GAME:
-    def __init__(self):
+    def __init__(self, display):
         self.fruit = FRUIT(cell_size, cell_number)
         self.snake = SNAKE(cell_size, cell_number)
+        self.game_font = pygame.font.Font('Fonts/nice_sugar/Nice Sugar.ttf', 25)
+        self.display = display
         
     def update(self):
         self.check_collision()
@@ -33,6 +35,7 @@ class GAME:
         self.draw_grass()
         self.fruit.draw_fruit(screen)
         self.snake.draw_snake(screen)
+        self.draw_score()
         
     def check_collision(self):
         if self.snake.get_head_pos() == self.fruit.pos:
@@ -53,14 +56,30 @@ class GAME:
                 for col in range(cell_number):
                     if col % 2 != 0:
                         grass_rect = pygame.Rect(int(col * cell_size), int(row * cell_size), cell_size, cell_size)
-                        pygame.draw.rect(screen, grass_color, grass_rect)
+                        pygame.draw.rect(self.display, grass_color, grass_rect)
             else:
                 for col in range(cell_number):
                     if col % 2 == 0:
                         grass_rect = pygame.Rect(int(col * cell_size), int(row * cell_size), cell_size, cell_size)
-                        pygame.draw.rect(screen, grass_color, grass_rect)
+                        pygame.draw.rect(self.display, grass_color, grass_rect)
+                        
+    def draw_score(self):
+        score_text = str(int(len(self.snake.body_cells) - 3) * 10)
+        score_surface = self.game_font.render(score_text, True, (56, 74, 12))
+        score_x = int(cell_size * cell_number - 60)
+        score_y = int(cell_size * cell_number - 50)
+        score_rect = score_surface.get_rect(center=(score_x, score_y))
+        tomato_rect = self.fruit.fruit_asset.get_rect(midright=(score_rect.left, score_rect.centery))
+        score_bg_rect = pygame.Rect(tomato_rect.left, tomato_rect.top - 3, tomato_rect.width + score_rect.width + 6, tomato_rect.height + 3)
+        
+        pygame.draw.rect(self.display, (200, 200, 200), score_bg_rect)
+        self.display.blit(score_surface, score_rect)
+        self.display.blit(self.fruit.fruit_asset, tomato_rect)
+        pygame.draw.rect(self.display, pygame.Color('black'), score_bg_rect, 2)
+        
+        
 
-game = GAME()
+game = GAME(screen)
 
 while True:
     for event in pygame.event.get():
