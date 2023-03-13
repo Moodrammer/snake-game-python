@@ -1,4 +1,10 @@
 # Welcome to Snake 🐍 game !
+## ✅ Todo:
+- [ ] Add Sounds to the game.
+- [ ] Add a gameover screen displaying the final score.
+- [ ] Add a two-player mode with two snakes.
+- [ ] Some code refactoring.
+
 ## 🎨 Game Sprites
 All sprites are drawn by me 😊 using the following website pixel art tool [Pixilart](https://www.pixilart.com/)
 
@@ -37,3 +43,4 @@ A fruit appears on a random grid cell and each time the snake eats a fruit anoth
 
 ## 📚 References
 -  [Clear Code Amazing Tutorial](https://www.youtube.com/watch?v=QFvqStqPCRU)
+-  [Fonts Resource](https://www.dafont.com/)
