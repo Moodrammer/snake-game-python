@@ -16,7 +16,11 @@ All sprites are drawn by me 😊 using the following website pixel art tool [Pix
 
 ## 🎮 Demo
 ![game_gif](Graphics/Videos/sample_game_2.gif)
+### Update #2
+- Adding some animation
+- Adding grass borders
 
+![game_gif_2](Graphics/Videos/snake_game_update_2.gif)
 ## 🕹️ Game Logic
 First of all we assume a virtual grid that the snake moves on and on which the fruits appear the grid ⏹️ has 40x40 cells each of size 20*20
 
