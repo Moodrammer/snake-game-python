@@ -13,7 +13,12 @@ class FRUIT:
         self.cell_number = cell_number
         self.cell_size = cell_size
         self.fruit_color = (255, 0, 50)
+        
         self.fruit_asset = pygame.image.load('Graphics/tomato.png')
+        self.fruit_asset_frame_1 = pygame.image.load('Graphics/tomato_1.png')
+        self.fruit_asset_frame_2 = pygame.image.load('Graphics/tomato_2.png')
+        self.frame_num = 0
+        
         self.set_new_fruit_pos()
         
     def draw_fruit(self, display):
@@ -24,7 +29,19 @@ class FRUIT:
         """
         fruit_rect = pygame.Rect(int(self.pos.x * self.cell_size), int(self.pos.y * self.cell_size), self.cell_size, self.cell_size)
         # pygame.draw.rect(display, self.fruit_color, fruit_rect)
-        display.blit(self.fruit_asset, fruit_rect)
+        if self.frame_num >= 0 and self.frame_num <= 20:
+            display.blit(self.fruit_asset, fruit_rect)
+        elif self.frame_num <= 30:
+            display.blit(self.fruit_asset_frame_1, fruit_rect)
+        elif self.frame_num <= 60:
+            display.blit(self.fruit_asset_frame_2, fruit_rect)
+        elif self.frame_num <= 70:
+            display.blit(self.fruit_asset_frame_1, fruit_rect)
+        else:
+            display.blit(self.fruit_asset_frame_1, fruit_rect)
+            self.frame_num = 0
+            
+        self.frame_num += 1
         
     def set_new_fruit_pos(self):
         self.x = random.randint(0, self.cell_number-1)
