@@ -23,11 +23,8 @@
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
+
+
 
 ## 🎨 Game Sprites
 All sprites are drawn by me 😊 using the following website pixel art tool [Pixilart](https://www.pixilart.com/)
@@ -58,11 +55,7 @@ All sprites are drawn by me 😊 using the following website pixel art tool [Pix
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
+
 
 ## 🎮 Demo
 ![game_gif](Graphics/Videos/sample_game_2.gif)
@@ -72,10 +65,6 @@ All sprites are drawn by me 😊 using the following website pixel art tool [Pix
 
 ![game_gif_2](Graphics/Videos/snake_game_update_2.gif)
 
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
@@ -120,10 +109,6 @@ For the snake movement, there are two cases:
 ### 🍎 Fruit Collection
 A fruit appears on a random grid cell and each time the snake eats a fruit another fruit appears at a different location on a different grid cell.
 
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
-![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
