@@ -44,7 +44,7 @@ class FRUIT:
         self.frame_num += 1
         
     def set_new_fruit_pos(self):
-        self.x = random.randint(0, self.cell_number-1)
-        self.y = random.randint(0, self.cell_number-1)
+        self.x = random.randint(1, self.cell_number-2)
+        self.y = random.randint(1, self.cell_number-2)
         self.pos = Vector2(self.x, self.y)  
         

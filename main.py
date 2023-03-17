@@ -24,6 +24,7 @@ class GAME:
         self.fruit = FRUIT(cell_size, cell_number)
         self.snake = SNAKE(cell_size, cell_number)
         self.game_font = pygame.font.Font('Fonts/nice_sugar/Nice Sugar.ttf', 25)
+        self.grass_border_asset = pygame.image.load('Graphics/grass_border.png')
         self.display = display
         
     def update(self):
@@ -35,6 +36,7 @@ class GAME:
         self.draw_grass()
         self.fruit.draw_fruit(screen)
         self.snake.draw_snake(screen)
+        self.draw_grass_border()
         self.draw_score()
         
     def check_collision(self):
@@ -62,6 +64,21 @@ class GAME:
                     if col % 2 == 0:
                         grass_rect = pygame.Rect(int(col * cell_size), int(row * cell_size), cell_size, cell_size)
                         pygame.draw.rect(self.display, grass_color, grass_rect)
+                        
+    def draw_grass_border(self):
+        for i in range(cell_number):
+            grass_rect = pygame.Rect(int(i * cell_size), int(0 * cell_size), cell_size, cell_size)
+            self.display.blit(self.grass_border_asset, grass_rect)
+            
+            grass_rect = pygame.Rect(int(0 * cell_size), int(i * cell_size), cell_size, cell_size)
+            self.display.blit(self.grass_border_asset, grass_rect)
+            
+            grass_rect = pygame.Rect(int(i * cell_size), int((cell_number-1) * cell_size), cell_size, cell_size)
+            self.display.blit(self.grass_border_asset, grass_rect)
+            
+            grass_rect = pygame.Rect(int((cell_number-1) * cell_size), int(i * cell_size), cell_size, cell_size)
+            self.display.blit(self.grass_border_asset, grass_rect)
+        
                         
     def draw_score(self):
         score_text = str(int(len(self.snake.body_cells) - 3) * 10)
