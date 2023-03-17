@@ -70,7 +70,7 @@ All sprites are drawn by me 😊 using the following website pixel art tool [Pix
 - Adding some animation
 - Adding grass borders
 
-![game_gif_2](Graphics/Videos/snake_game_update_2.gif
+![game_gif_2](Graphics/Videos/snake_game_update_2.gif)
 
 ![grass_border](Graphics/grass_border.png)
 ![grass_border](Graphics/grass_border.png)
