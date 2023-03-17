@@ -13,9 +13,15 @@ class SNAKE:
         self.is_add_new_block = False
         
         self.snake_head_right_asset = pygame.image.load('Graphics/snake_head_R.png')
+        self.snake_head_right_frame_1_asset = pygame.image.load('Graphics/snake_head_R_1.png')
         self.snake_head_left_asset = pygame.image.load('Graphics/snake_head_L.png')
+        self.snake_head_left_frame_1_asset = pygame.image.load('Graphics/snake_head_L_1.png')
         self.snake_head_up_asset = pygame.image.load('Graphics/snake_head_U.png')
+        self.snake_head_up_frame_1_asset = pygame.image.load('Graphics/snake_head_U_1.png')
         self.snake_head_down_asset = pygame.image.load('Graphics/snake_head_D.png')
+        self.snake_head_down_frame_1_asset = pygame.image.load('Graphics/snake_head_D_1.png')
+        
+        self.frame_num = 0
         
         self.snake_body_asset = pygame.image.load('Graphics/snake_body.png')
         
@@ -23,13 +29,42 @@ class SNAKE:
         head_rect = pygame.Rect(int(self.get_head_pos().x * self.cell_size), int(self.get_head_pos().y * self.cell_size), self.cell_size, self.cell_size)
         # pygame.draw.rect(display, pygame.Color('black'), head_rect)
         if self.direction == DIRECTIONS['RIGHT']:
-            display.blit(self.snake_head_right_asset, head_rect)
+            if self.frame_num <= 30:
+                display.blit(self.snake_head_right_asset, head_rect)
+            elif self.frame_num <= 60:
+                display.blit(self.snake_head_right_frame_1_asset, head_rect)
+            else:
+                display.blit(self.snake_head_right_frame_1_asset, head_rect)
+                self.frame_num = 0
+                
         if self.direction == DIRECTIONS['LEFT']:
-            display.blit(self.snake_head_left_asset, head_rect)
+            if self.frame_num <= 30:
+                display.blit(self.snake_head_left_asset, head_rect)
+            elif self.frame_num <= 60:
+                display.blit(self.snake_head_left_frame_1_asset, head_rect)
+            else:
+                display.blit(self.snake_head_left_frame_1_asset, head_rect)
+                self.frame_num = 0
+                
         if self.direction == DIRECTIONS['DOWN']:
-            display.blit(self.snake_head_down_asset, head_rect)
+            if self.frame_num <= 30:
+                display.blit(self.snake_head_down_asset, head_rect)
+            elif self.frame_num <= 60:
+                display.blit(self.snake_head_down_frame_1_asset, head_rect)
+            else:
+                display.blit(self.snake_head_down_frame_1_asset, head_rect)
+                self.frame_num = 0
+                
         if self.direction == DIRECTIONS['UP']:
-            display.blit(self.snake_head_up_asset, head_rect)
+            if self.frame_num <= 30:
+                display.blit(self.snake_head_up_asset, head_rect)
+            elif self.frame_num <= 60:
+                display.blit(self.snake_head_up_frame_1_asset, head_rect)
+            else:
+                display.blit(self.snake_head_up_frame_1_asset, head_rect)
+                self.frame_num = 0
+        
+        self.frame_num += 1
         
         for i in range(1, len(self.body_cells)):
             body_cell = self.body_cells[i]
@@ -71,3 +106,4 @@ class SNAKE:
     
     def set_new_block_flag(self):
         self.is_add_new_block = True
+        
