@@ -11,6 +11,7 @@ class SNAKE:
         self.direction = DIRECTIONS['RIGHT']
         self.body_cells = [Vector2(5,10), Vector2(4, 10), Vector2(3, 10)]
         self.is_add_new_block = False
+        self.done_move = True
         
         self.snake_head_right_asset = pygame.image.load('Graphics/snake_head_R.png')
         self.snake_head_right_frame_1_asset = pygame.image.load('Graphics/snake_head_R_1.png')
@@ -80,8 +81,11 @@ class SNAKE:
         return False
     
     def set_snake_direction(self, direction: Vector2):
+        if not self.done_move:
+            return
         if not self._is_reverse_direction(self.direction, direction):
             self.direction = direction
+            self.done_move = False
         
     def move_snake(self):
         head_cell = [self.body_cells[0] + self.direction]
@@ -100,6 +104,8 @@ class SNAKE:
             self.is_add_new_block = False
         else:
             self.body_cells = head_cell + self.body_cells[:-1]
+
+        self.done_move = True
         
     def get_head_pos(self):
         return self.body_cells[0]

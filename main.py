@@ -26,6 +26,7 @@ class GAME:
         self.game_font = pygame.font.Font('Fonts/nice_sugar/Nice Sugar.ttf', 25)
         self.grass_border_asset = pygame.image.load('Graphics/grass_border.png')
         self.display = display
+
         
     def update(self):
         self.check_collision()
@@ -108,11 +109,11 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 game.snake.set_snake_direction(DIRECTIONS['UP'])
-            if event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN:
                 game.snake.set_snake_direction(DIRECTIONS['DOWN'])
-            if event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_LEFT:
                 game.snake.set_snake_direction(DIRECTIONS['LEFT'])
-            if event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT:
                 game.snake.set_snake_direction(DIRECTIONS['RIGHT'])
         
     
